@@ -28,6 +28,7 @@ class Environment:
         # Initializing with all zeroes
         self.grid = np.zeros((self.n, self.n))
         self.assign_terrain()
+        self.assign_target()
 
     def assign_terrain(self):
         count = 0
@@ -68,7 +69,13 @@ class Environment:
                 c = self.cell[row][col]
                 if c.terrain is None:
                     c.terrain = "caves"
-    '''
+
+    def assign_target(self):
+        row = random.randrange(0, self.n)
+        col = random.randrange(0, self.n)
+        c = self.cell[row][col]
+        c.target = True
+'''
     def check(self):
         c1 = 0
         c2 = 0
@@ -85,11 +92,13 @@ class Environment:
                     c3 += 1
                 if b.terrain == "flat":
                     c4 += 1
+                if b.target == True:
+                    print(row, col)
         print("caves", c1)
         print("forr", c2)
         print("hilly", c3)
         print("flat", c4)
-        '''
+'''
 
 # env = Environment(10)
 # env.generate_grid()
