@@ -17,6 +17,8 @@ class Cell:
         self.belief = 0
         # Probability of finding the target in a cell
         self.belief2 = 0
+        # distance for each cell
+        self.distance = 0
 
 
 class Environment:
@@ -74,33 +76,6 @@ class Environment:
         col = random.randrange(0, self.n)
         self.grid[row][col].target = True
 
-
-'''
-    def check(self):
-        c1 = 0
-        c2 = 0
-        c3 = 0
-        c4 = 0
-        for row in range(self.n):
-            for col in range(self.n):
-                if self.grid[row][col].terrain == "caves":
-                    c1 += 1
-                if self.grid[row][col].terrain == "forest":
-                    c2 += 1
-                if self.grid[row][col].terrain == "hilly":
-                    c3 += 1
-                if self.grid[row][col].terrain == "flat":
-                    c4 += 1
-                if self.grid[row][col].target == True:
-                    print(row, col)
-        print("caves", c1)
-        print("forr", c2)
-        print("hilly", c3)
-        print("flat", c4)
-
-'''
-
-
 # env = Environment(10)
-# env.generate_grid()
-# env.check()
+
+
